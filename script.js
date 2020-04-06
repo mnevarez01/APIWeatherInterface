@@ -1,8 +1,11 @@
+var APIkey = "25899f976ac10a6f3a73624013195b56"
+
 $(document).ready(function () {
+
     $("#search-button").on("click", function () {
-        var uesrCity = $("#search-value").val();
+        var userCity = $("#search-value").val();
         $("#search-value").val("")
-        searchWeather(uesrCity);
+        searchWeather(userCity);
     })
 
     $(".history").on("click", "li", function () {
@@ -17,7 +20,7 @@ $(document).ready(function () {
     function searchWeather(userCity) {
         $.ajax({
             method: "GET",
-            URL: "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&appid=" + APIkey,
+            URL: "http://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&appid=" + APIkey,
             dataType: "json",
             success: function (data) {
                 // insert code here
@@ -25,18 +28,30 @@ $(document).ready(function () {
                     if (data.list[i].dt_txt.indexOf("15:00:00") !== -1) {
                         var col = $("<div>").addClass("col-md-2");
                         var card = $("<div>").addClass("col-md-2 card");
-                        var body = $("<body>").addClass("")
-                        var title = $("< >")
-                        var img =
-                        var p1 =
-                        var p2 =
+                        var body = $("<div>").addClass("col-md-2")
+                        var title = $("<h3>").text(userCity);
+                        var img = $("<img>").attr({ src: "link", alt: "Weekly Forecast" })
+                        var p1 = $("<p>")
+                        var p2 = $("<p>")
 
-                            col.append(card.append(body.append(title, img, p1, p2)));
+                        col.append(card.append(body.append(title, img, p1, p2)));
 
                         $("#forecast .row").append(col);
                     }
                 }
             }
+        }).then(function (response) {
+
+            console.log(response)
+            if (response) {
+
+
+            } else {
+
+
+            }
+
+
         })
 
 
@@ -65,6 +80,6 @@ $(document).ready(function () {
 
 
 
-var APIkey = "25899f976ac10a6f3a73624013195b56";
-var userCity = "Chicago";
-var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&appid=" + APIkey;
+// var APIkey = "25899f976ac10a6f3a73624013195b56";
+// var userCity = "Chicago";
+// var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&appid=" + APIkey;
