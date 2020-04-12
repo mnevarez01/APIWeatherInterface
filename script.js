@@ -21,7 +21,7 @@ $(document).ready(function () {
     function searchWeather(userCity) {
         $.ajax({
             method: "GET",
-            url: "http://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&appid=" + APIkey + "&units=imperial",
+            url: "https://api.openweathermap.org/data/2.5/weather?q=" + userCity + "&appid=" + APIkey + "&units=imperial",
             dataType: "json",
             success: function (data) {
                 if (history.indexOf(userCity) === -1) {
