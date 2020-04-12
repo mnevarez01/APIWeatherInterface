@@ -50,7 +50,7 @@ $(document).ready(function () {
         console.log("it worked!")
         $.ajax({
             type: "GET",
-            url: "http://api.openweathermap.org/data/2.5/forecast?q=" + userCity + "&appid=" + APIkey + "&units=imperial",
+            url: "https://api.openweathermap.org/data/2.5/forecast?q=" + userCity + "&appid=" + APIkey + "&units=imperial",
             dataType: "json",
             success: function (data) {
                 $("#forecast").html("<h4 class=\"mt-3\">5-Day Forecast:</h4>").append("<div class=\"row\">");
